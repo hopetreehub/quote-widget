@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>명언 위젯</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: transparent;
+      color: #333;
+      text-align: center;
+      transition: color 0.3s, background-color 0.3s;
+    }
+    .quote {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .author {
+      font-size: 1rem;
+      opacity: 0.7;
+    }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: transparent;
+        color: #eee;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="quote" id="quote"></div>
+    <div class="author" id="author"></div>
+  </div>
+
+  <script>
+    const quotes = [
+      { quote: "성공은 준비와 기회의 만남이다.", author: "알버트 아인슈타인" },
+      { quote: "포기하지 마라. 위대한 일은 시간이 걸린다.", author: "나폴레옹 힐" },
+      { quote: "가장 어두운 밤도 끝나고 해는 떠오른다.", author: "빅터 위고" },
+      { quote: "오늘 걷지 않으면 내일 뛰어야 한다.", author: "조선 격언" },
+      { quote: "내일은 없다. 오직 오늘뿐이다.", author: "마하트마 간디" }
+    ];
+
+    function showRandomQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const quote = quotes[randomIndex];
+      document.getElementById('quote').textContent = `"${quote.quote}"`;
+      document.getElementById('author').textContent = `- ${quote.author}`;
+    }
+
+    showRandomQuote();
+  </script>
+</body>
+</html>
